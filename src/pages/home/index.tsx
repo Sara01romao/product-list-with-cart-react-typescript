@@ -2,18 +2,19 @@ import { FaPlus } from "react-icons/fa";
 import { GrFormSubtract } from "react-icons/gr";
 import { IoClose } from "react-icons/io5";
 import { LiaCartPlusSolid } from "react-icons/lia";
+import styles from './home.module.css'
 
 
  export function Home(){
     return(
 
-      <div className=" max-w-full lg:max-w-screen-xl h-auto mx-auto flex flex-wrap gap-8  mt-16  items-center lg:items-start justify-center border">
+      <div className=" max-w-full lg:max-w-screen-xl h-auto mx-auto flex max-[1000px]:flex-wrap   gap-8 px-5  mt-16  items-center lg:items-start justify-center border">
 
-        <div className="w-2/3 ">
+        <div className=" m-auto w-4/5 min-[1000px]:w-2/3">
           <h1 className="text-3xl font-bold  text-[#260F08] mb-8">
             Desserts
           </h1>
-          <div className="border flex gap-x-6 gap-y-8 flex-wrap items-center lg:items-start justify-center lg:justify-start m-auto">
+          <div className="border flex gap-x-6 gap-y-8 flex-wrap items-center justify-center min-[1206px]:justify-start m-auto">
             
               <div>
                   <div className="relative">
@@ -137,10 +138,10 @@ import { LiaCartPlusSolid } from "react-icons/lia";
           </div>
         </div>
 
-        <div className="w-full max-w-sm p-6 bg-white rounded-xl ">
+        <div className=" border  lg:max-w-md   max-[1000px]:w-4/5   p-6 bg-white rounded-xl ">
            <h3 className="text-[#C73B0F] w-full font-bold  text-2xl mb-6 " >Your Cart (7)</h3>
 
-           <div className="flex flex-col items-center justify-center my-6">
+           <div className="flex hidden flex-col items-center justify-center my-6">
               <svg width="122" height="102" viewBox="0 0 122 102" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path opacity="0.15" d="M5.43604 97.4062C5.43604 98.4671 10.0717 99.4845 18.3233 100.235C26.5749 100.985 37.7665 101.406 49.436 101.406C61.1056 101.406 72.2971 100.985 80.5487 100.235C88.8003 99.4845 93.436 98.4671 93.436 97.4062C93.436 96.3454 88.8003 95.328 80.5487 94.5778C72.2971 93.8277 61.1056 93.4062 49.436 93.4062C37.7665 93.4062 26.5749 93.8277 18.3233 94.5778C10.0717 95.328 5.43604 96.3454 5.43604 97.4062Z" fill="#260F08"/>
                 <path d="M116.983 11.2196L69.8359 16.9796L74.1559 52.3396L118.929 46.8729C119.242 46.8367 119.544 46.7387 119.819 46.5845C120.093 46.4304 120.334 46.2232 120.528 45.975C120.721 45.7269 120.863 45.4427 120.946 45.139C121.029 44.8354 121.05 44.5183 121.009 44.2063L116.983 11.2196Z" fill="#87635A"/>
@@ -159,7 +160,7 @@ import { LiaCartPlusSolid } from "react-icons/lia";
           </div>
           
            <div className="">
-              <div className="flex flex-col ">
+              <div className={`${styles.listCart} flex flex-col overflow-y-auto max-h-96 border pr-2 `}>
                   <div className="flex justify-between items-center border-b-2 border-[#F5EEEC] py-4 ">
                     <div>
                         <p className="mb-2 text-[#260F08] text-base font-medium">Classic Tiramisu</p>
@@ -191,6 +192,70 @@ import { LiaCartPlusSolid } from "react-icons/lia";
                     </button>
                       
                   </div>
+                  <div className="flex justify-between items-center border-b-2 border-[#F5EEEC] py-4 ">
+                    <div>
+                        <p className="mb-2 text-[#260F08] text-base font-medium">Classic Tiramisu</p>
+                        <div className="flex items-center gap-2">
+                          <p className="text-[#C73B0F] font-medium">1x</p>
+                          <p className="text-[#87635A]">@ $7.00</p>
+                          <p className="text-[#87635A] font-medium">$28.00</p>
+                        </div>
+                    </div>
+
+                    <button className="group border-2 rounded-full border-[#AD8A85] hover:border-[#260F08] duration-300 group-hover:duration-300">
+                        <IoClose size={20} className="text-[#AD8A85] group-hover:text-[#260F08] duration-300 group-hover:duration-300 "/>
+                    </button>
+                      
+                  </div>
+
+                  <div className="flex justify-between items-center border-b-2 border-[#F5EEEC] py-4 ">
+                    <div>
+                        <p className="mb-2 text-[#260F08] text-base font-medium">Classic Tiramisu</p>
+                        <div className="flex items-center gap-2">
+                          <p className="text-[#C73B0F] font-medium">1x</p>
+                          <p className="text-[#87635A]">@ $7.00</p>
+                          <p className="text-[#87635A] font-medium">$28.00</p>
+                        </div>
+                    </div>
+
+                    <button className="group border-2 rounded-full border-[#AD8A85] hover:border-[#260F08] duration-300 group-hover:duration-300">
+                        <IoClose size={20} className="text-[#AD8A85] group-hover:text-[#260F08] duration-300 group-hover:duration-300 "/>
+                    </button>
+                      
+                  </div>
+                  <div className="flex justify-between items-center border-b-2 border-[#F5EEEC] py-4 ">
+                    <div>
+                        <p className="mb-2 text-[#260F08] text-base font-medium">Classic Tiramisu</p>
+                        <div className="flex items-center gap-2">
+                          <p className="text-[#C73B0F] font-medium">1x</p>
+                          <p className="text-[#87635A]">@ $7.00</p>
+                          <p className="text-[#87635A] font-medium">$28.00</p>
+                        </div>
+                    </div>
+
+                    <button className="group border-2 rounded-full border-[#AD8A85] hover:border-[#260F08] duration-300 group-hover:duration-300">
+                        <IoClose size={20} className="text-[#AD8A85] group-hover:text-[#260F08] duration-300 group-hover:duration-300 "/>
+                    </button>
+                      
+                  </div>
+
+                  <div className="flex justify-between items-center border-b-2 border-[#F5EEEC] py-4 ">
+                    <div>
+                        <p className="mb-2 text-[#260F08] text-base font-medium">Classic Tiramisu</p>
+                        <div className="flex items-center gap-2">
+                          <p className="text-[#C73B0F] font-medium">1x</p>
+                          <p className="text-[#87635A]">@ $7.00</p>
+                          <p className="text-[#87635A] font-medium">$28.00</p>
+                        </div>
+                    </div>
+
+                    <button className="group border-2 rounded-full border-[#AD8A85] hover:border-[#260F08] duration-300 group-hover:duration-300">
+                        <IoClose size={20} className="text-[#AD8A85] group-hover:text-[#260F08] duration-300 group-hover:duration-300 "/>
+                    </button>
+                      
+                  </div>
+
+                  
 
                 
               </div>
