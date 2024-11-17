@@ -3,11 +3,12 @@ import { GrFormSubtract } from "react-icons/gr";
 import { IoClose } from "react-icons/io5";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import styles from './home.module.css'
+import { OrderConfirm } from "../../components/orderConfirmed";
 
 
  export function Home(){
     return(
-
+    <>
       <div className=" max-w-full lg:max-w-screen-xl h-auto mx-auto flex max-[1000px]:flex-wrap   gap-8 px-5  mt-16  items-center lg:items-start justify-center border">
 
         <div className=" m-auto w-4/5 min-[1000px]:w-2/3">
@@ -138,7 +139,7 @@ import styles from './home.module.css'
           </div>
         </div>
 
-        <div className=" border  lg:max-w-md   max-[1000px]:w-4/5   p-6 bg-white rounded-xl ">
+        <div className=" border  lg:max-w-md max-[1000px]:w-4/5 p-6 bg-white rounded-xl ">
            <h3 className="text-[#C73B0F] w-full font-bold  text-2xl mb-6 " >Your Cart (7)</h3>
 
            <div className="flex hidden flex-col items-center justify-center my-6">
@@ -254,10 +255,6 @@ import styles from './home.module.css'
                     </button>
                       
                   </div>
-
-                  
-
-                
               </div>
 
               <div>
@@ -273,15 +270,17 @@ import styles from './home.module.css'
 
                     <p>This is a <strong>carbon-neutral</strong> delivery</p>
                   </div>
-                  <button className="font-medium bg-[#C73B0F] text-white mt-6 w-full p-4 rounded-full">Confirm Order</button>
+                  <button className="font-medium bg-[#C73B0F] text-white mt-6 w-full p-4 rounded-full hover:bg-[#952C0B] duration-300">Confirm Order</button>
               </div>
 
            </div>
 
-           
         </div>
           
       </div>
+
+      <OrderConfirm/>
+    </>
         
     )
  }

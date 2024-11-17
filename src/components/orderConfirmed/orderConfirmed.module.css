@@ -1,0 +1,14 @@
+
+.orderConfirmed::-webkit-scrollbar {
+    width: 6px;              
+}
+  
+.orderConfirmed::-webkit-scrollbar-track {
+    background: rgb(223, 223, 223);       
+}
+
+.orderConfirmed::-webkit-scrollbar-thumb {
+    background-color: rgb(190, 190, 190);    
+    border-radius: 20px;       
+    border: 1px solid rgb(223, 223, 223);  
+}
