@@ -1,10 +1,15 @@
+
+import { useState } from "react";
+import { products, ProductType } from "../../data/product";
+
 import { FaPlus } from "react-icons/fa";
 import { GrFormSubtract } from "react-icons/gr";
 import { IoClose } from "react-icons/io5";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import styles from './home.module.css'
 import { OrderConfirm } from "../../components/orderConfirmed";
-import { useState } from "react";
+
+
 
 interface ProductProps{
   id:number;
@@ -36,9 +41,7 @@ interface ProductProps{
     }
     
     function handleRemove(id:number){
-        alert(id)
         const updatedCart = cart.filter(item => item.id !== id)
-        
         setCart(updatedCart)
 
     }
@@ -69,29 +72,32 @@ interface ProductProps{
             Desserts
           </h1>
           <div className="border flex gap-x-6 gap-y-8 flex-wrap items-center justify-center min-[1206px]:justify-start m-auto">
-            
-              <div>
+              
+             {products.map((product:ProductType) =>(
+
+                <div key={product.id}>
                   <div className="relative">
-                      <img src="./doce.png" alt="doce" />
-                      { cart.some(item => item.id === 1)? (
-                          <div className="px-6 h-12 w-52 m-auto absolute bottom-[-20px] right-0 left-0 right bg-[#C73B0F]  flex justify-between items-center rounded-full ">
-                            <button onClick={() => handleDecrement(1)} className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
+                      <img src={`/assets/${product.img}`} alt="doce" className={`${cart.some(item => item.id === product.id)?'border-[#C73B0F] border-2 rounded-lg' :'border-0'}`} />
+
+                      { cart.some(item => item.id === product.id)? (
+                          <div className="px-6 h-12 w-52 m-auto absolute bottom-[-20px] right-0 left-0 right bg-[#C73B0F] flex justify-between items-center rounded-full ">
+                            <button onClick={() => handleDecrement(product.id)} className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
                               <GrFormSubtract size={14} className="text-white  group-hover:text-[#C73B0F]" />
                             </button>
 
-                            <p className="text-white">{cart.find(item => item.id === 1)?.quantity || 0}</p>
+                            <p className="text-white">{cart.find(item => item.id === product.id)?.quantity || 0}</p>
 
-                            <button onClick={() => handleAddCart({id:1, name:'arroz', price:2})} className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
+                            <button onClick={() => handleAddCart(product)} className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
                                 <FaPlus size={14} className="text-white  group-hover:text-[#C73B0F]" />
 
                             </button>
                           </div>
-                         
-                         )
+                        
+                        )
                         : 
                         (
-                          <button onClick={() => handleAddCart({id:1, name:'arroz', price:2})} className=" group px-6 h-12 absolute bottom-[-20px] right-0 left-0 w-52 m-auto bg-white border-2 border-rose-[#AD8A85] flex items-center justify-center gap-5 rounded-full text-[#260F08] hover:bg-[#C73B0F] hover:text-white transition ease-in-out duration-300  ">
-                
+                          <button onClick={() => handleAddCart(product)} className=" group px-6 h-12 absolute bottom-[-20px] right-0 left-0 w-52 m-auto bg-white border-2 border-rose-[#AD8A85] flex items-center justify-center gap-5 rounded-full text-[#260F08] hover:bg-[#C73B0F] hover:text-white transition ease-in-out duration-300  ">
+
                           <LiaCartPlusSolid size={25} className="text-[#C73B0F]  group-hover:text-white"/>
                           Add to Cart
                         </button>
@@ -99,54 +105,20 @@ interface ProductProps{
                         )
                       
                       }
-  
+
                   </div>
 
                   <div className="mt-8">
-                    <p className="text-[#87635A]">Waffle</p>
-                    <h4 className="text-[#260F08] text-lg font-medium">Waffle with Berries</h4>
-                    <p className="text-[#C73B0F]  text-lg font-medium">$6.50</p>
+                    <p className="text-[#87635A]">{product.type}</p>
+                    <h4 className="text-[#260F08] text-lg font-medium">{product.name}</h4>
+                    <p className="text-[#C73B0F]  text-lg font-medium">${product.price.toFixed(2)}</p>
                   </div>
-              </div>
-               
-              <div>
-                  <div className="relative">
-                      <img src="./doce.png" alt="doce" />
-                      { cart.some(item => item.id === 2)? (
-                          <div className="px-6 h-12 w-52 m-auto absolute bottom-[-20px] right-0 left-0 right bg-[#C73B0F]  flex justify-between items-center rounded-full ">
-                            <button  className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
-                              <GrFormSubtract size={14} className="text-white  group-hover:text-[#C73B0F]" />
-                            </button>
+                </div>
 
-                            <p className="text-white">4</p>
+             ))}
 
-                            <button className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
-                                <FaPlus size={14} className="text-white  group-hover:text-[#C73B0F]" />
-
-                            </button>
-                          </div>
-                         
-                         )
-                        : 
-                        (
-                          <button onClick={() => handleAddCart({id:2, name:'Ovo', price:2})} className=" group px-6 h-12 absolute bottom-[-20px] right-0 left-0 w-52 m-auto bg-white border-2 border-rose-[#AD8A85] flex items-center justify-center gap-5 rounded-full text-[#260F08] hover:bg-[#C73B0F] hover:text-white transition ease-in-out duration-300  ">
-                
-                          <LiaCartPlusSolid size={25} className="text-[#C73B0F]  group-hover:text-white"/>
-                          Add to Cart
-                        </button>
-                          
-                        )
-                      
-                      }
-  
-                  </div>
-
-                  <div className="mt-8">
-                    <p className="text-[#87635A]">Waffle</p>
-                    <h4 className="text-[#260F08] text-lg font-medium">Waffle with Berries</h4>
-                    <p className="text-[#C73B0F]  text-lg font-medium">$6.50</p>
-                  </div>
-              </div>
+              
+             
           </div>
         </div>
 
@@ -164,8 +136,8 @@ interface ProductProps{
                                   <p className="mb-2 text-[#260F08] text-base font-medium">{item.name}</p>
                                   <div className="flex items-center gap-2">
                                     <p className="text-[#C73B0F] font-medium">{item.quantity}x</p>
-                                    <p className="text-[#87635A]">@ $7.00</p>
-                                    <p className="text-[#87635A] font-medium">$28.00</p>
+                                    <p className="text-[#87635A]">@ ${item.price.toFixed(2)}</p>
+                                    <p className="text-[#87635A] font-medium">${item.quantity &&  (item.price * item.quantity).toFixed(2)}</p>
                                   </div>
                               </div>
 
