@@ -34,7 +34,30 @@ interface ProductProps{
       }
 
     }
+    
+    function handleRemove(id:number){
+        alert(id)
+        const updatedCart = cart.filter(item => item.id !== id)
+        
+        setCart(updatedCart)
 
+    }
+
+    function handleDecrement(id: number) {
+      const updatedCart = cart.map(item => {
+        if (item.id === id && (item.quantity || 0) > 0) {
+          return {
+            ...item,
+            quantity: (item.quantity || 0) - 1, 
+          };
+        }
+        return item;
+      })
+      .filter(item => (item.quantity || 0) > 0); 
+      
+      setCart(updatedCart);
+    }
+    
   
    
     return(
@@ -52,13 +75,13 @@ interface ProductProps{
                       <img src="./doce.png" alt="doce" />
                       { cart.some(item => item.id === 1)? (
                           <div className="px-6 h-12 w-52 m-auto absolute bottom-[-20px] right-0 left-0 right bg-[#C73B0F]  flex justify-between items-center rounded-full ">
-                            <button  className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
+                            <button onClick={() => handleDecrement(1)} className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
                               <GrFormSubtract size={14} className="text-white  group-hover:text-[#C73B0F]" />
                             </button>
 
-                            <p className="text-white">4</p>
+                            <p className="text-white">{cart.find(item => item.id === 1)?.quantity || 0}</p>
 
-                            <button className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
+                            <button onClick={() => handleAddCart({id:1, name:'arroz', price:2})} className="group border-2 p-1 hover:bg-white rounded-full  duration-300">
                                 <FaPlus size={14} className="text-white  group-hover:text-[#C73B0F]" />
 
                             </button>
@@ -146,7 +169,7 @@ interface ProductProps{
                                   </div>
                               </div>
 
-                              <button className="group border-2 rounded-full border-[#AD8A85] hover:border-[#260F08] duration-300 group-hover:duration-300">
+                              <button onClick={()=> handleRemove(item.id)} className="group border-2 rounded-full border-[#AD8A85] hover:border-[#260F08] duration-300 group-hover:duration-300">
                                   <IoClose size={20} className="text-[#AD8A85] group-hover:text-[#260F08] duration-300 group-hover:duration-300 "/>
                               </button>
                               
