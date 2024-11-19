@@ -1,3 +1,67 @@
+<h2 align="center"> 💻 Carrinho de Compra Sobremesas </h2> 
+
+<p align="center">
+  
+
+  <img max-width="auto" height="auto"  src="https://github.com/user-attachments/assets/41e1fc73-9e28-4f0b-bb57-ecb8aee2609a">
+  <img max-width="auto" height="auto"  src="https://github.com/user-attachments/assets/70b21937-a795-46d1-91e4-8eb5f4181f80">
+  
+</p> 
+
+
+
+## 💻  Sobre o Projeto
+
+Este projeto é uma página permite que os usuários explorem um cardápio das sobremesas, gerenciem suas escolhas em um carrinho de compras.
+
+ Principais funcionalidades:
+
+ - Visualize uma seleção de sobremesas com imagens, descrições e preços.
+ - Adicione sobremesas ao carrinho
+ - Escolha a quantidade de cada item diretamente
+ - Visualize todos os itens adicionados ao carrinho com valores detalhados.
+ - Atualize a quantidade de cada item ou remova itens indesejados.
+ - Calcule automaticamente o valor total dos itens no carrinho.
+ - Simule a finalização da compra com um resumo detalhado do pedido.
+
+  
+<a href="https://sobremesas-carrinho-de-compra.netlify.app/" target="_blank"><strong>Acessar »</strong></a>
+
+<br>
+
+
+## :rocket: Tecnologias Usadas
+
+
+Front-end 
+```
+ReactJS
+Typescript
+Tailwind
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
