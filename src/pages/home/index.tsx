@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { products, ProductType } from "../../data/product";
 
 import { FaPlus } from "react-icons/fa";
@@ -22,6 +22,14 @@ interface ProductProps{
  export function Home(){
 
     const [cart, setCart] = useState <ProductProps[]>([]);
+    const [total, setTotal] = useState(0);
+
+    useEffect(()=>{
+      let totalCart = cart.reduce((acc, item) => acc + item.price * (item.quantity ?? 1), 0);
+      
+      setTotal(totalCart)
+
+    },[cart])
     
     function handleAddCart(item:ProductProps){
       const existingItemIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
@@ -123,7 +131,7 @@ interface ProductProps{
         </div>
 
         <div className=" border  lg:max-w-md max-[1000px]:w-4/5 p-6 bg-white rounded-xl ">
-           <h3 className="text-[#C73B0F] w-full font-bold  text-2xl mb-6 " >Your Cart (7)</h3>
+           <h3 className="text-[#C73B0F] w-full font-bold  text-2xl mb-6 " >Your Cart ({cart.length})</h3>
             
             {cart.length > 0 ? 
                <div className="">
@@ -157,7 +165,7 @@ interface ProductProps{
                   <div>
                       <div className="flex justify-between items-center mt-6">
                         <p>Order Total</p>
-                        <h3 className="text-[#260F08] text-3xl font-bold">$46.50</h3>
+                        <h3 className="text-[#260F08] text-3xl font-bold">${total.toFixed(2)}</h3>
                       </div>
     
                       <div className="mt-6 px-2 flex items-center gap-2 justify-center bg-[#FCF8F6] py-4 rounded-lg">
