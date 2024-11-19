@@ -8,6 +8,7 @@ interface listProps {
     id: number;
     name: string;
     price: number;
+    img:string;
     quantity?: number; 
   }
 
@@ -44,7 +45,7 @@ export function OrderConfirm({list, total, handleCloseOrder}:OrderConfirmProps){
                                 <div className={`${styles.orderConfirmed} h-[270px] overflow-y-auto`}>
                                     {list.map(item => (
                                         <div className="flex gap-4 items-center border-b-2 border-[#F5EEEC] py-4 px-3">
-                                            <img className="w-14" src="https://www.tasteofhome.com/wp-content/uploads/2018/01/Cherry-Delight-Dessert_EXPS_TOHcom23_27515_P2_MD_03_22_4b.jpg" alt="" />
+                                            <img className="w-14 rounded" src={`assets/${item.img}`} alt={item.name} />
                                             <div className="flex flex-col">
                                                 <p className="text-[#260F08] font-medium text-base">{item.name}</p>
                                                 <div className="flex items-center gap-2">

@@ -13,7 +13,7 @@ export function NotFound(){
             
                 <a
                     href="/"
-                    className="mt-6 inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring"
+                    className="mt-6 inline-block rounded bg-[#C73B0F] px-5 py-3 text-sm font-medium text-white hover:bg-[#952C0B] focus:outline-none focus:ring"
                 >
                     Voltar Para Home
                 </a>
