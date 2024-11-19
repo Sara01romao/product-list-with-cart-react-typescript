@@ -83,13 +83,13 @@ interface ProductProps{
    
     return(
     <>
-      <div className=" max-w-full lg:max-w-screen-xl h-auto mx-auto flex max-[1000px]:flex-wrap gap-8 px-5  mt-16 items-center lg:items-start justify-center">
+      <div className=" max-w-full lg:max-w-screen-xl h-auto mx-auto flex max-[1000px]:flex-wrap gap-8 px-5  mt-16 items-start lg:items-start justify-center">
 
         <div className=" m-auto w-4/5 min-[1000px]:w-2/3">
           <h1 className="text-3xl font-bold  text-[#260F08] mb-8">
             Desserts
           </h1>
-          <div className="flex gap-x-6 gap-y-8 flex-wrap items-center justify-center min-[1206px]:justify-start m-auto mb-20">
+          <div className="flex gap-x-4 gap-y-8 flex-wrap items-center justify-center min-[1206px]:justify-start m-auto mb-20">
               
              {products.map((product:ProductType) =>(
 
@@ -140,7 +140,7 @@ interface ProductProps{
           </div>
         </div>
 
-        <div className=" border  lg:max-w-md max-[1000px]:w-4/5 p-6 bg-white rounded-xl ">
+        <div className=" border  lg:max-w-md max-[1000px]:w-full p-6 bg-white rounded-xl ">
            <h3 className="text-[#C73B0F] w-full font-bold  text-2xl mb-6 " >Your Cart ({cart.length})</h3>
             
             {cart.length > 0 ? 
