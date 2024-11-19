@@ -22,7 +22,8 @@ interface ProductProps{
  export function Home(){
 
     const [cart, setCart] = useState <ProductProps[]>([]);
-    const [total, setTotal] = useState(0);
+    const [total, setTotal] = useState<number>(0);
+    const [orderConfirm, setorderConfirm] = useState(false)
 
     useEffect(()=>{
       let totalCart = cart.reduce((acc, item) => acc + item.price * (item.quantity ?? 1), 0);
@@ -68,7 +69,15 @@ interface ProductProps{
       
       setCart(updatedCart);
     }
+
+    function handleConfirmedOrder(){
+      setorderConfirm(true);
+    }
     
+    function handleCloseOrder(){
+      setorderConfirm(false);
+      setCart([]);
+    }
   
    
     return(
@@ -79,7 +88,7 @@ interface ProductProps{
           <h1 className="text-3xl font-bold  text-[#260F08] mb-8">
             Desserts
           </h1>
-          <div className="border flex gap-x-6 gap-y-8 flex-wrap items-center justify-center min-[1206px]:justify-start m-auto">
+          <div className="flex gap-x-6 gap-y-8 flex-wrap items-center justify-center min-[1206px]:justify-start m-auto mb-20">
               
              {products.map((product:ProductType) =>(
 
@@ -175,12 +184,12 @@ interface ProductProps{
     
                         <p className="">This is a <strong>carbon-neutral</strong> delivery</p>
                       </div>
-                      <button className="font-medium bg-[#C73B0F] text-white mt-6 w-full p-4 rounded-full hover:bg-[#952C0B] duration-300">Confirm Order</button>
+                      <button onClick={handleConfirmedOrder} className="font-medium bg-[#C73B0F] text-white mt-6 w-full p-4 rounded-full hover:bg-[#952C0B] duration-300">Confirm Order</button>
                   </div>
     
                </div>
                :
-               <div className="flex flex-col items-center justify-center my-6">
+               <div className="flex flex-col items-center justify-center my-6 pt-4">
                   <svg width="122" height="102" viewBox="0 0 122 102" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.15" d="M5.43604 97.4062C5.43604 98.4671 10.0717 99.4845 18.3233 100.235C26.5749 100.985 37.7665 101.406 49.436 101.406C61.1056 101.406 72.2971 100.985 80.5487 100.235C88.8003 99.4845 93.436 98.4671 93.436 97.4062C93.436 96.3454 88.8003 95.328 80.5487 94.5778C72.2971 93.8277 61.1056 93.4062 49.436 93.4062C37.7665 93.4062 26.5749 93.8277 18.3233 94.5778C10.0717 95.328 5.43604 96.3454 5.43604 97.4062Z" fill="#260F08"/>
                     <path d="M116.983 11.2196L69.8359 16.9796L74.1559 52.3396L118.929 46.8729C119.242 46.8367 119.544 46.7387 119.819 46.5845C120.093 46.4304 120.334 46.2232 120.528 45.975C120.721 45.7269 120.863 45.4427 120.946 45.139C121.029 44.8354 121.05 44.5183 121.009 44.2063L116.983 11.2196Z" fill="#87635A"/>
@@ -199,15 +208,15 @@ interface ProductProps{
               </div>
             }
 
-          
-          
-          
-
         </div>
           
       </div>
-
-      {/* <OrderConfirm/> */}
+      
+      {orderConfirm && ( 
+        <OrderConfirm list={cart} total={total} handleCloseOrder={handleCloseOrder} />
+        )
+      }
+     
     </>
         
     )
