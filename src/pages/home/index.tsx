@@ -9,8 +9,6 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import styles from './home.module.css'
 import { OrderConfirm } from "../../components/orderConfirmed";
 
-
-
 interface ProductProps{
   id:number;
   name: string;
