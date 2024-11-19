@@ -1,4 +1,4 @@
-<h2 align="center"> 💻 Sistema de Vendas de Ingresso de Cinema </h2> 
+<h2 align="center"> 💻 Carrinho de Compra Sobremesas </h2> 
 
 <p align="center">
   
